@@ -20,15 +20,23 @@ void traversal(){
     //prints every element of linked list sequentially
 
     if(head == NULL){
+        printf("--------------------------------------\n");
         printf("Empty list.....\n");
+        printf("--------------------------------------\n");
+
+
     }
     else{
     struct node* ptr = (struct node*)malloc(sizeof(struct node));
     ptr = head;
+        printf("--------------------------------------\n");
+
     for(int i = 1;ptr!=NULL;i++){
         printf("element %d of linkedlist = %d\n",i,ptr->data);
         ptr = ptr->next;
     }
+        printf("--------------------------------------\n");
+
     }
 }
 
@@ -266,7 +274,107 @@ void insertaftervalue(int key,int element,int count_skip){
 
 int main(void){
 
- //your code here
+while(1){
+
+ int choice;
+ printf("Please select your choice: \n");
+ printf("---------------------------------------------------------\n");
+ printf("select 0)To traverse the linked list\n");
+ printf("select 1)To insert at the beginning of the linked list\n");
+ printf("select 2)To delete at the beginning of the linked list\n");
+ printf("select 3)To insert at the end of the linked list\n");
+ printf("select 4)To delete from the end of the linked list\n");
+ printf("select 5)To insert at an index of the linked list\n");
+ printf("select 6)To delete at an index of the linked list\n");
+ printf("select 7)To insert after a value of the linked list\n");
+ printf("select 8)To delete an element by it's value in the linked list\n");
+ printf("select 9)To search an element and print it's index\n");
+ printf("select 10)To exit the program\n");
+
+
+ scanf("%d",&choice);
+        int value;
+        int val;
+        int index;
+        int element;
+        int ind;
+        int key;
+        int num;
+        int skip;
+        int k,ski;
+        int ele;
+
+
+ switch(choice){
+    case 0:
+        traversal();
+        break;
+    case 1:
+        printf("enter the value: \n");
+        scanf("%d",&value);
+        insertatbeginning(value);
+        break;
+    case 2:
+        deletefromend();
+        break;
+    case 3:
+        printf("enter the value: \n");
+        scanf("%d",&val);
+        insertatend(val);
+        break;
+    case 4:
+        deletefromend();
+        break;
+    case 5:
+        
+        printf("enter the value: \n");
+        scanf("%d",&element);
+        printf("enter the index: \n");
+        scanf("%d",&index);
+        insertatindex(element,index);
+        break;
+    case 6:
+        printf("enter the index: \n");
+        scanf("%d",&ind);
+        deletefromindex(ind);
+        break;
+    case 7: 
+       
+        printf("enter the value: \n");
+        scanf("%d",&key);
+        printf("enter the value you want to insert after: \n");
+        scanf("%d",&num);
+        printf("enter the no of elements you want to skip if multiple instances found: \n");
+        scanf("%d",&skip);
+        insertaftervalue(key,value,skip);
+        break;
+    case 8: 
+        printf("enter the value: \n");
+        scanf("%d",&k);
+        printf("enter the no of elements you want to skip if multiple instances found: \n");
+        scanf("%d",&ski);
+        deletebyvalue(k,ski);
+        break;
+    case 9:
+        printf("enter the element: \n");
+        scanf("%d",&ele);
+        searchtheindex(ele);             
+        break;
+    case 10:
+        exit(0);
+        break;    
+    default:
+        printf("invalid choice!!!!!\n");
+ }
+
+}
+ 
+
+
+
+
+
+
     return 0;
 
 }
